@@ -18,15 +18,13 @@
 
 @font-face {
   font-family: "Montserrat";
-  src: url("/home/odinstudent/repos/ODIN PROJECTS/odin-cv-application/src/assets/FONT/Montserrat/Montserrat-VariableFont_wght.ttf")
-    format("truetype");
+  src: url("/home/odinstudent/repos/ODIN PROJECTS/odin-cv-application/src/assets/FONT/Montserrat/Montserrat-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Rubik";
-  src: url("/home/odinstudent/repos/ODIN PROJECTS/odin-cv-application/src/assets/FONT/Rubik/Rubik-VariableFont_wght.ttf")
-    format("truetype");
+  src: url("/home/odinstudent/repos/ODIN PROJECTS/odin-cv-application/src/assets/FONT/Rubik/Rubik-VariableFont_wght.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -96,8 +94,7 @@ button {
 button:hover {
   border-color: #5367ff;
 }
-button:focus,
-button:focus-visible {
+button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
@@ -110,4 +107,4 @@ footer {
   width: 100%;
   font-family: "Montserrat", Arial, sans-serif;
   font-size: clamp(12px, 1.875vw + 0.375rem, 18.75px);
-} /*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */
