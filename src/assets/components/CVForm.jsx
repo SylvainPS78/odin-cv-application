@@ -137,7 +137,7 @@ const PersonnalInformationForm = () => {
           error={errors.address}
           placeholder="My address"
         />
-        <button type="submit" className="submit-button">
+        <button type="submit" className="next-button">
           Next
         </button>
       </form>
