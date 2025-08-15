@@ -42,10 +42,49 @@
   color: #888;
 }
 
-.input-form {
+.input-form-container {
   background-color: #ffffff;
   width: -moz-fit-content;
   width: fit-content;
   padding: 2rem;
   border-radius: 8px;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.next-button,
+.previous-button {
+  background: linear-gradient(135deg, #5367ff, #7f8dfc);
+  color: #ffffff;
+  border: none;
+}
+.next-button:hover,
+.previous-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(83, 103, 255, 0.3);
+}
+.next-button:active,
+.previous-button:active {
+  transform: translateY(0);
+}
+.next-button:disabled,
+.previous-button:disabled {
+  background: #f0f0f0;
+  color: #9194a2;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  outline: none;
+}
+.next-button:disabled:hover, .next-button:disabled:focus, .next-button:disabled:active,
+.previous-button:disabled:hover,
+.previous-button:disabled:focus,
+.previous-button:disabled:active {
+  border: none;
+  transform: none;
+  outline: none;
+  box-shadow: none;
 }/*# sourceMappingURL=App.css.map */

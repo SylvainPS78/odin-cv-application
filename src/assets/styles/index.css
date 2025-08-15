@@ -99,25 +99,6 @@ button:focus, button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-.next-button {
-  background: linear-gradient(135deg, #5367ff, #7f8dfc);
-  color: #ffffff;
-}
-.next-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(83, 103, 255, 0.3);
-}
-.next-button:active {
-  transform: translateY(0);
-}
-.next-button:disabled {
-  background: #f0f0f0;
-  color: #9194a2;
-  cursor: not-allowed;
-  transform: none;
-  box-shadow: none;
-}
-
 .input-field {
   width: 100%;
   padding: 0.4rem 0.5rem;

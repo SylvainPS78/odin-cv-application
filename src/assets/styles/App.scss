@@ -58,9 +58,48 @@ $spacing-lg: 4rem;
   color: #888;
 }
 
-.input-form {
+.input-form-container {
   background-color: $white;
   width: fit-content;
   padding: $spacing-md;
   border-radius: 8px;
+}
+
+.form-navigation {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.next-button,
+.previous-button {
+  background: linear-gradient(135deg, $primary-blue, $light-primary-blue);
+  color: $white;
+  border: none;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba($primary-blue, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: $light-grey;
+    color: $medium-grey;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    outline: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: none;
+      transform: none;
+      outline: none;
+      box-shadow: none;
+    }
+  }
 }
