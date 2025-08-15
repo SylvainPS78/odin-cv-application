@@ -1,9 +1,25 @@
+// Colors
+$primary-blue: #5367ff;
+$light-primary-blue: #7f8dfc;
+$light-accent-red: #ff8787;
+$accent-red: #fa5757;
+$white: #ffffff;
+$black: #000000;
+$light-grey: #f0f0f0;
+$medium-grey: #9194a2;
+$dark-grey: #242940;
+
+// Spacing
+$spacing-sm: 1rem;
+$spacing-md: 2rem;
+$spacing-lg: 4rem;
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background-color: #5367ff;
+  background-color: $primary-blue;
 }
 
 .logo {
@@ -12,13 +28,11 @@
   will-change: filter;
   transition: filter 300ms;
 }
-
 .logo:hover {
-  filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.6666666667));
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
-
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.6666666667));
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
@@ -29,11 +43,13 @@
     transform: rotate(360deg);
   }
 }
+
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
+
 .card {
   padding: 2em;
 }
@@ -43,9 +59,8 @@
 }
 
 .input-form {
-  background-color: #ffffff;
-  width: -moz-fit-content;
+  background-color: $white;
   width: fit-content;
-  padding: 2rem;
+  padding: $spacing-md;
   border-radius: 8px;
-}/*# sourceMappingURL=App.css.map */
+}
