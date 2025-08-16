@@ -84,3 +84,38 @@
     }
   }
 }
+
+.add-button {
+  background: $light-primary-blue;
+  color: $dark-grey;
+  border: none;
+  margin-bottom: 0.5rem;
+
+  &:hover {
+    box-shadow: 0 4px 15px rgba($primary-blue, 0.3);
+    background: $primary-blue;
+    color: $white;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    background: $light-grey;
+    color: $medium-grey;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    outline: none;
+
+    &:hover,
+    &:focus,
+    &:active {
+      border: none;
+      transform: none;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+}

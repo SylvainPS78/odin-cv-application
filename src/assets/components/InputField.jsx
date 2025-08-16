@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 
-/**
- * Reusable InputField component with accessibility features
- */
 const InputField = ({
   label,
   type = "text",
@@ -11,6 +8,8 @@ const InputField = ({
   value,
   onChange,
   required = false,
+  addButton = false,
+  inputList = [],
   placeholder = "",
   className = "",
   disabled = false,
@@ -56,6 +55,22 @@ const InputField = ({
         }),
         ...otherProps,
       })}
+      {addButton && (
+        <>
+          {inputList.map((savedInput, index) => (
+            <p key={index}>{savedInput}</p>
+          ))}
+          <button
+            type="button"
+            className="add-button"
+            // onClick=
+            //  disabled=
+          >
+            Add
+          </button>
+        </>
+      )}
+
       {hasError && (
         <div
           id={`${inputId}-error`}

@@ -71,4 +71,33 @@
   transform: none;
   outline: none;
   box-shadow: none;
+}
+
+.add-button {
+  background: #7f8dfc;
+  color: #242940;
+  border: none;
+  margin-bottom: 0.5rem;
+}
+.add-button:hover {
+  box-shadow: 0 4px 15px rgba(83, 103, 255, 0.3);
+  background: #5367ff;
+  color: #ffffff;
+}
+.add-button:active {
+  transform: translateY(0);
+}
+.add-button:disabled {
+  background: #f0f0f0;
+  color: #9194a2;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  outline: none;
+}
+.add-button:disabled:hover, .add-button:disabled:focus, .add-button:disabled:active {
+  border: none;
+  transform: none;
+  outline: none;
+  box-shadow: none;
 }/*# sourceMappingURL=App.css.map */
