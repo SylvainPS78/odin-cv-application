@@ -32,20 +32,30 @@ const InputField = ({
           )}
         </label>
       )}
-      <input
-        id={inputId}
-        type={type}
-        name={name || inputId}
-        value={value}
-        onChange={onChange}
-        className={`input-field ${hasError ? "input-error" : ""}`}
-        placeholder={placeholder}
-        disabled={disabled}
-        aria-invalid={hasError}
-        aria-required={required}
-        aria-describedby={hasError ? `${inputId}-error` : undefined}
-        {...otherProps}
-      />
+      {React.createElement(type === "textarea" ? "textarea" : "input", {
+        id: inputId,
+        ...(type !== "textarea" && { type }),
+        name: name || inputId,
+        value,
+        onChange,
+        className: `input-field ${hasError ? "input-error" : ""}`,
+        placeholder,
+        disabled,
+        "aria-invalid": hasError,
+        "aria-required": required,
+        "aria-describedby": hasError ? `${inputId}-error` : undefined,
+        ...(type === "textarea" && {
+          rows: 4,
+          style: {
+            resize: "none",
+            width: "100%",
+            overflowY: "auto",
+            height: "auto",
+            minHeight: "4em",
+          },
+        }),
+        ...otherProps,
+      })}
       {hasError && (
         <div
           id={`${inputId}-error`}
