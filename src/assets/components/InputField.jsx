@@ -15,11 +15,10 @@ const InputField = ({
   placeholder = "",
   className = "",
   disabled = false,
-  error = "",
+
   ...otherProps
 }) => {
   const [inputId] = useState(id || `input-${crypto.randomUUID()}`);
-  const hasError = !!error;
 
   const handleAddClick = () => {
     if (onAdd && value && value.trim()) {
@@ -59,12 +58,10 @@ const InputField = ({
         onAdd,
         onDelete,
         onKeyDown: addButton ? handleKeyDown : undefined,
-        className: `input-field ${hasError ? "input-error" : ""}`,
+        className: `input-field`,
         placeholder,
         disabled,
-        "aria-invalid": hasError,
         "aria-required": required,
-        "aria-describedby": hasError ? `${inputId}-error` : undefined,
         ...(type === "textarea" && {
           rows: 4,
           style: {
@@ -110,16 +107,6 @@ const InputField = ({
             Add
           </button>
         </>
-      )}
-
-      {hasError && (
-        <div
-          id={`${inputId}-error`}
-          className="error-message"
-          aria-live="polite"
-        >
-          {error}
-        </div>
       )}
     </div>
   );
