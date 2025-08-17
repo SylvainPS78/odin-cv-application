@@ -45,6 +45,18 @@ const CVForm = () => {
             />
           ))}
         </div>
+        {currentForm.addButton && (
+          <>
+            <Button
+              variant="add"
+              //onClick={handleAddClick}
+              //disabled={!value || !value.trim()}
+            >
+              Add
+            </Button>
+          </>
+        )}
+
         <div
           className="form-navigation"
           role="navigation"

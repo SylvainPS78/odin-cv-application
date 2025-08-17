@@ -72,15 +72,14 @@
 }
 
 .add-button {
-  background: #7f8dfc;
-  color: #242940;
+  background: #5367ff;
+  color: #ffffff;
   border: none;
   margin-bottom: 0.5rem;
 }
 .add-button:hover {
   box-shadow: 0 4px 15px rgba(83, 103, 255, 0.3);
-  background: #5367ff;
-  color: #ffffff;
+  transform: translateY(-1px);
 }
 .add-button:active {
   transform: translateY(0);

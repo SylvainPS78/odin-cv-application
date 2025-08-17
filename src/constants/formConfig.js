@@ -112,6 +112,7 @@ export const formList = [
     id: FORM_TYPES.EDUCATION,
     formTitle: "Education",
     formSubTitle: "Add your Education's History",
+    addButton: true,
     inputs: [
       {
         id: "universityName",
@@ -145,6 +146,7 @@ export const formList = [
     id: FORM_TYPES.EXPERIENCE,
     formTitle: "Experiences",
     formSubTitle: "Add your work Experiences",
+    addButton: true,
     inputs: [
       {
         id: "companyName",
