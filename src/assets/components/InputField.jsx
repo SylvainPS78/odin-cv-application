@@ -11,6 +11,7 @@ const InputField = ({
   addButton = false,
   inputList = [],
   onAdd,
+  onDelete,
   placeholder = "",
   className = "",
   disabled = false,
@@ -24,6 +25,10 @@ const InputField = ({
     if (onAdd && value && value.trim()) {
       onAdd(value.trim());
     }
+  };
+
+  const handleDeleteClick = (index) => {
+    onDelete(index);
   };
 
   const handleKeyDown = (e) => {
@@ -52,6 +57,7 @@ const InputField = ({
         value,
         onChange,
         onAdd,
+        onDelete,
         onKeyDown: addButton ? handleKeyDown : undefined,
         className: `input-field ${hasError ? "input-error" : ""}`,
         placeholder,
@@ -77,7 +83,11 @@ const InputField = ({
             {inputList.map((savedInput, index) => (
               <span class="saved-input" key={index}>
                 {savedInput}
-                <button type="button" className="delete-button">
+                <button
+                  type="button"
+                  className="delete-button"
+                  onClick={() => handleDeleteClick(index)}
+                >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     height="18px"

@@ -56,6 +56,22 @@ const CVForm = () => {
     }));
   };
 
+  const handleRemoveFromList = (inputId, index) => {
+    setFormData((prev) => {
+      if (!prev[inputId] || !prev[inputId].list) return prev;
+
+      const newList = prev[inputId].list.filter((_, i) => i !== index);
+
+      return {
+        ...prev,
+        [inputId]: {
+          ...prev[inputId],
+          list: newList,
+        },
+      };
+    });
+  };
+
   let currentForm = formList[index];
 
   return (
@@ -80,6 +96,7 @@ const CVForm = () => {
               }
               onChange={(e) => handleInputChange(input.id, e.target.value)}
               onAdd={(value) => handleAddToList(input.id, value)}
+              onDelete={(index) => handleRemoveFromList(input.id, index)}
             />
           ))}
         </div>
