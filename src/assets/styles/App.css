@@ -6,9 +6,7 @@
 
 .input-form-container {
   background-color: #ffffff;
-  width: -moz-fit-content;
-  width: fit-content;
-  min-width: 20vw;
+  width: 20vw;
   padding: 1rem;
   border-radius: 20px;
   position: relative;
@@ -102,7 +100,7 @@
   box-shadow: none;
 }
 
-.saved-inputs {
+.saved-inputs-list {
   padding: 0.4rem;
   border: 2px solid #9194a2;
   border-radius: 10px;
@@ -111,4 +109,49 @@
   margin-bottom: 0.5rem;
   color: #242940;
   background-color: #f0f0f0;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+.saved-inputs-list::after {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 80%;
+  background-color: #9194a2;
+  opacity: 0.5;
+}
+.saved-inputs-list span {
+  padding: 0.2rem 0.4rem;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.saved-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+  background-color: none;
+  padding: 0;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+}
+.delete-button:focus {
+  outline: none;
+}
+.delete-button svg {
+  transition: fill 0.2s ease;
+}
+.delete-button:hover svg {
+  fill: #fa5757;
 }/*# sourceMappingURL=App.css.map */

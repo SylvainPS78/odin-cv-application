@@ -60,7 +60,7 @@ const CVForm = () => {
 
   return (
     <aside className="input-form-container">
-      <form onSubmit={handleNextClick}>
+      <form>
         <div className="input-section">
           <h2 className="form-title">{currentForm.formTitle}</h2>
           <h3 className="form-sub-title">{currentForm.formSubTitle}</h3>
@@ -85,7 +85,7 @@ const CVForm = () => {
         </div>
         <div className="form-navigation">
           <button
-            type="submit"
+            type="button"
             className="previous-button"
             onClick={handlePreviousClick}
             disabled={!hasPrev}
@@ -93,7 +93,7 @@ const CVForm = () => {
             Previous
           </button>
           <button
-            type="submit"
+            type="button"
             className="next-button"
             onClick={handleNextClick}
             disabled={!hasNext}

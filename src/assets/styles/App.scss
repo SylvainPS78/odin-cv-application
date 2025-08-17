@@ -15,8 +15,7 @@
 
 .input-form-container {
   background-color: $white;
-  width: fit-content;
-  min-width: 20vw;
+  width: 20vw;
   padding: $spacing-sm;
   border-radius: $container-radius;
   position: relative;
@@ -120,7 +119,7 @@
   }
 }
 
-.saved-inputs {
+.saved-inputs-list {
   padding: 0.4rem;
   border: 2px solid $medium-grey;
   border-radius: $input-radius;
@@ -129,4 +128,56 @@
   margin-bottom: 0.5rem;
   color: $dark-grey;
   background-color: $light-grey;
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 80%;
+    background-color: $medium-grey;
+    opacity: 0.5;
+  }
+
+  span {
+    padding: 0.2rem 0.4rem;
+    text-align: center;
+    word-wrap: break-word;
+  }
+}
+
+.saved-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.delete-button {
+  background-color: none;
+  padding: 0;
+  border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    transition: fill 0.2s ease;
+  }
+
+  &:hover svg {
+    fill: $accent-red;
+  }
 }
