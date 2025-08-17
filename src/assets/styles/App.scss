@@ -119,3 +119,14 @@
     }
   }
 }
+
+.saved-inputs {
+  padding: 0.4rem;
+  border: 2px solid $medium-grey;
+  border-radius: $input-radius;
+  font-size: $font-size-small;
+  font-family: $font-body;
+  margin-bottom: 0.5rem;
+  color: $dark-grey;
+  background-color: $light-grey;
+}

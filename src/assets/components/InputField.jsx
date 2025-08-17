@@ -5,11 +5,12 @@ const InputField = ({
   type = "text",
   id,
   name,
-  value,
+  value = "",
   onChange,
   required = false,
   addButton = false,
   inputList = [],
+  onAdd,
   placeholder = "",
   className = "",
   disabled = false,
@@ -18,6 +19,12 @@ const InputField = ({
 }) => {
   const [inputId] = useState(id || `input-${crypto.randomUUID()}`);
   const hasError = !!error;
+
+  const handleAddClick = () => {
+    if (onAdd && value && value.trim()) {
+      onAdd(value.trim());
+    }
+  };
 
   return (
     <div className={`input-field-container ${className}`}>
@@ -37,6 +44,7 @@ const InputField = ({
         name: name || inputId,
         value,
         onChange,
+        onAdd,
         className: `input-field ${hasError ? "input-error" : ""}`,
         placeholder,
         disabled,
@@ -57,14 +65,16 @@ const InputField = ({
       })}
       {addButton && (
         <>
-          {inputList.map((savedInput, index) => (
-            <p key={index}>{savedInput}</p>
-          ))}
+          <div class="saved-inputs">
+            {inputList.map((savedInput, index) => (
+              <span key={index}>{savedInput}</span>
+            ))}
+          </div>
           <button
             type="button"
             className="add-button"
-            // onClick=
-            //  disabled=
+            onClick={handleAddClick}
+            disabled={!value && !value.trim()}
           >
             Add
           </button>

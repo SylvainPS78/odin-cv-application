@@ -4,6 +4,8 @@ import { formList } from "../data/data.jsx";
 
 const CVForm = () => {
   const [index, setIndex] = useState(0);
+  const [formData, setFormData] = useState({});
+
   let hasPrev = index > 0;
   let hasNext = index < formList.length - 1;
 
@@ -21,6 +23,39 @@ const CVForm = () => {
     }
   };
 
+  const handleInputChange = (inputId, value) => {
+    setFormData((prev) => {
+      const currentInput = currentForm.inputs.find(
+        (input) => input.id === inputId
+      );
+
+      if (currentInput && currentInput.addButton) {
+        return {
+          ...prev,
+          [inputId]: {
+            value: value,
+            list: prev[inputId]?.list || currentInput.inputList || [],
+          },
+        };
+      } else {
+        return {
+          ...prev,
+          [inputId]: value,
+        };
+      }
+    });
+  };
+
+  const handleAddToList = (inputId, value) => {
+    setFormData((prev) => ({
+      ...prev,
+      [inputId]: {
+        value: "",
+        list: [...(prev[inputId]?.list || []), value],
+      },
+    }));
+  };
+
   let currentForm = formList[index];
 
   return (
@@ -30,7 +65,22 @@ const CVForm = () => {
           <h2 className="form-title">{currentForm.formTitle}</h2>
           <h3 className="form-sub-title">{currentForm.formSubTitle}</h3>
           {currentForm.inputs.map((input) => (
-            <InputField key={input.id} {...input} />
+            <InputField
+              key={input.id}
+              {...input}
+              value={
+                input.addButton
+                  ? formData[input.id]?.value || ""
+                  : formData[input.id] || ""
+              }
+              inputList={
+                input.addButton
+                  ? formData[input.id]?.list || input.inputList || []
+                  : []
+              }
+              onChange={(e) => handleInputChange(input.id, e.target.value)}
+              onAdd={(value) => handleAddToList(input.id, value)}
+            />
           ))}
         </div>
         <div className="form-navigation">
