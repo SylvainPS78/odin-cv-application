@@ -1,81 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import InputField from "./InputField";
-import { formList } from "../data/data.jsx";
+import Button from "./Button";
+import { formList } from "../../constants/formConfig.js";
+import { useFormNavigation } from "../../hooks/useFormNavigation.js";
 
 const CVForm = () => {
-  const [index, setIndex] = useState(0);
-  const [formData, setFormData] = useState({});
-
-  let hasPrev = index > 0;
-  let hasNext = index < formList.length - 1;
-
-  const handleNextClick = (e) => {
-    e.preventDefault();
-    if (hasNext) {
-      setIndex(index + 1);
-    }
-  };
-
-  const handlePreviousClick = (e) => {
-    e.preventDefault();
-    if (hasPrev) {
-      setIndex(index - 1);
-    }
-  };
-
-  const handleInputChange = (inputId, value) => {
-    setFormData((prev) => {
-      const currentInput = currentForm.inputs.find(
-        (input) => input.id === inputId
-      );
-
-      if (currentInput && currentInput.addButton) {
-        return {
-          ...prev,
-          [inputId]: {
-            value: value,
-            list: prev[inputId]?.list || currentInput.inputList || [],
-          },
-        };
-      } else {
-        return {
-          ...prev,
-          [inputId]: value,
-        };
-      }
-    });
-  };
-
-  const handleAddToList = (inputId, value) => {
-    setFormData((prev) => ({
-      ...prev,
-      [inputId]: {
-        value: "",
-        list: [...(prev[inputId]?.list || []), value],
-      },
-    }));
-  };
-
-  const handleRemoveFromList = (inputId, index) => {
-    setFormData((prev) => {
-      if (!prev[inputId] || !prev[inputId].list) return prev;
-
-      const newList = prev[inputId].list.filter((_, i) => i !== index);
-
-      return {
-        ...prev,
-        [inputId]: {
-          ...prev[inputId],
-          list: newList,
-        },
-      };
-    });
-  };
-
-  let currentForm = formList[index];
+  const {
+    currentForm,
+    hasPrev,
+    hasNext,
+    formData,
+    handleNextClick,
+    handlePreviousClick,
+    handleInputChange,
+    handleAddToList,
+    handleRemoveFromList,
+  } = useFormNavigation(formList);
 
   return (
-    <aside className="input-form-container">
+    <aside className="input-form-container" role="form" aria-label="CV Form">
       <form>
         <div className="input-section">
           <h2 className="form-title">{currentForm.formTitle}</h2>
@@ -96,27 +39,33 @@ const CVForm = () => {
               }
               onChange={(e) => handleInputChange(input.id, e.target.value)}
               onAdd={(value) => handleAddToList(input.id, value)}
-              onDelete={(index) => handleRemoveFromList(input.id, index)}
+              onDelete={(itemIndex) =>
+                handleRemoveFromList(input.id, itemIndex)
+              }
             />
           ))}
         </div>
-        <div className="form-navigation">
-          <button
-            type="button"
-            className="previous-button"
+        <div
+          className="form-navigation"
+          role="navigation"
+          aria-label="Navigation du formulaire"
+        >
+          <Button
+            variant="previous"
             onClick={handlePreviousClick}
             disabled={!hasPrev}
+            ariaLabel="Go to previous form"
           >
             Previous
-          </button>
-          <button
-            type="button"
-            className="next-button"
+          </Button>
+          <Button
+            variant="next"
             onClick={handleNextClick}
             disabled={!hasNext}
+            ariaLabel="Go to next form"
           >
             Next
-          </button>
+          </Button>
         </div>
       </form>
     </aside>

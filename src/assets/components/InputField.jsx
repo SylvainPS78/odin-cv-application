@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "./Button";
 
 const InputField = ({
   label,
@@ -55,8 +56,6 @@ const InputField = ({
         name: name || inputId,
         value,
         onChange,
-        onAdd,
-        onDelete,
         onKeyDown: addButton ? handleKeyDown : undefined,
         className: `input-field`,
         placeholder,
@@ -76,14 +75,15 @@ const InputField = ({
       })}
       {addButton && (
         <>
-          <div class="saved-inputs-list">
+          <div className="saved-inputs-list">
             {inputList.map((savedInput, index) => (
-              <span class="saved-input" key={index}>
+              <span className="saved-input" key={index}>
                 {savedInput}
-                <button
-                  type="button"
-                  className="delete-button"
+                <Button
+                  variant="delete"
                   onClick={() => handleDeleteClick(index)}
+                  ariaLabel={`Delete ${savedInput}`}
+                  title={`Delete ${savedInput}`}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -94,18 +94,17 @@ const InputField = ({
                   >
                     <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
                   </svg>
-                </button>
+                </Button>
               </span>
             ))}
           </div>
-          <button
-            type="button"
-            className="add-button"
+          <Button
+            variant="add"
             onClick={handleAddClick}
-            disabled={!value && !value.trim()}
+            disabled={!value || !value.trim()}
           >
             Add
-          </button>
+          </Button>
         </>
       )}
     </div>

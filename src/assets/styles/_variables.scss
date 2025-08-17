@@ -16,6 +16,7 @@ $spacing-lg: 4rem;
 
 // Typography
 $font-body: "Montserrat", Arial, sans-serif;
+$font-heading: "Montserrat", Arial, sans-serif;
 $font-size-extra-small: clamp(8px, 1vw + 0.25rem, 12.5px);
 $font-size-small: clamp(12px, 1.5vw + 0.375rem, 18.75px);
 $font-size-medium: clamp(16px, 2vw + 0.5rem, 25px);
@@ -24,3 +25,11 @@ $font-size-large: clamp(20px, 3vw + 0.625rem, 31.25px);
 // Border
 $container-radius: 20px;
 $input-radius: 10px;
+
+// Transitions
+$transition-fast: 0.2s ease;
+$transition-normal: 0.3s ease;
+
+// Z-index
+$z-index-footer: 10;
+$z-index-modal: 100;
