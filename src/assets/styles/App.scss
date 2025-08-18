@@ -249,3 +249,11 @@
   left: 30vw;
   height: calc(94vh - 2 * $spacing-sm);
 }
+
+.user-first-name,
+.user-last-name {
+  font-size: $font-size-medium;
+  color: $primary-blue;
+  margin: 0.5rem 0;
+  text-align: center;
+}

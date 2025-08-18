@@ -131,7 +131,7 @@ const CVForm = () => {
         </form>
       </aside>
       <main>
-        <CVPreview></CVPreview>
+        <CVPreview formData={formData} />
       </main>
     </>
   );
