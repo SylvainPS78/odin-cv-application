@@ -197,4 +197,9 @@
 }
 .saved-object-item span {
   font-size: clamp(8px, 1vw + 0.25rem, 12.5px);
+}
+
+.user-picture {
+  margin: 0.5rem auto;
+  border-radius: 50%;
 }/*# sourceMappingURL=App.css.map */

@@ -25,6 +25,15 @@ const CVForm = () => {
         <div className="input-section">
           <h2 className="form-title">{currentForm.formTitle}</h2>
           <h3 className="form-sub-title">{currentForm.formSubTitle}</h3>
+          {currentForm.userPicture && (
+            <img
+              className="user-picture"
+              src={currentForm.userPicture}
+              alt="User profile picture"
+              width="100px"
+              height="100px"
+            />
+          )}
           {currentForm.inputs.map((input) => (
             <InputField
               key={input.id}

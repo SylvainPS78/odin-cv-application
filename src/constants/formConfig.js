@@ -1,3 +1,5 @@
+import defaultUserPicture from "../assets/img/default_user_picture.jpg";
+
 export const FORM_TYPES = {
   PERSONAL: "personal",
   ABOUT: "about",
@@ -20,6 +22,7 @@ export const formList = [
     id: FORM_TYPES.PERSONAL,
     formTitle: "Personal Informations",
     formSubTitle: "Enter your personal details",
+    userPicture: defaultUserPicture,
     inputs: [
       {
         id: "firstName",
