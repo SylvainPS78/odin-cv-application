@@ -202,4 +202,15 @@
 .user-picture {
   margin: 0.5rem auto;
   border-radius: 50%;
+}
+
+.cv-preview-container {
+  background-color: #ffffff;
+  width: 40vw;
+  padding: 1rem;
+  border-radius: 20px;
+  position: absolute;
+  top: 1rem;
+  left: 30vw;
+  height: calc(94vh - 2rem);
 }/*# sourceMappingURL=App.css.map */

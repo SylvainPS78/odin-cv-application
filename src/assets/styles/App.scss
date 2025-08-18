@@ -234,3 +234,18 @@
   margin: 0.5rem auto;
   border-radius: 50%;
 }
+
+// ==============================================
+// CV Preview
+// ==============================================
+
+.cv-preview-container {
+  background-color: $white;
+  width: 40vw;
+  padding: $spacing-sm;
+  border-radius: $container-radius;
+  position: absolute;
+  top: $spacing-sm;
+  left: 30vw;
+  height: calc(94vh - 2 * $spacing-sm);
+}
