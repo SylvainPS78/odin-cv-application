@@ -45,61 +45,85 @@ export const useFormNavigation = (formList) => {
     });
   };
 
-  const handleAddToList = (inputId, value) => {
-    setFormData((prev) => ({
-      ...prev,
-      [inputId]: {
-        value: "",
-        list: [...(prev[inputId]?.list || []), value],
-      },
-    }));
-  };
-
-  const handleAddObjectToList = (formId, object) => {
+  const handleAddToList = (key, item, isFormObject = false) => {
     setFormData((prev) => {
-      const newData = {
-        ...prev,
-        [formId]: {
-          list: [...(prev[formId]?.list || []), object],
-        },
-      };
-      return newData;
+      if (isFormObject) {
+        return {
+          ...prev,
+          [key]: {
+            ...prev[key],
+            list: [...(prev[key]?.list || []), item],
+          },
+        };
+      } else {
+        return {
+          ...prev,
+          [key]: {
+            value: "",
+            list: [...(prev[key]?.list || []), item],
+          },
+        };
+      }
     });
   };
 
-  const handleRemoveFromList = (inputId, itemIndex) => {
-    setFormData((prev) => {
-      if (!prev[inputId] || !prev[inputId].list) return prev;
+  const handleAddFormObject = (formId) => {
+    const ObjectToSave = {};
 
-      const newList = prev[inputId].list.filter((_, i) => i !== itemIndex);
-
-      return {
-        ...prev,
-        [inputId]: {
-          ...prev[inputId],
-          list: newList,
-        },
-      };
+    currentForm.inputs.forEach((input) => {
+      const value = formData[input.id];
+      if (value !== undefined && value !== "") {
+        ObjectToSave[input.id] = value;
+      }
     });
+
+    if (formId === "education") {
+      ObjectToSave.localization =
+        ObjectToSave.universityName || "Unknowed University";
+      ObjectToSave.topic = ObjectToSave.studyField || "Unknowed Field of Study";
+    } else if (formId === "experience") {
+      ObjectToSave.localization =
+        ObjectToSave.companyName || "Unknowed Company";
+      ObjectToSave.topic = ObjectToSave.jobPosition || "Unknowed Job Position";
+    }
+
+    ObjectToSave.createdAt = new Date().toISOString();
+
+    handleAddToList(formId, ObjectToSave, true);
+
+    currentForm.inputs.forEach((input) => handleInputChange(input.id, ""));
   };
 
-  const handleDeleteObject = (formId, objectIndex) => {
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && currentForm.addButton) {
+      e.preventDefault();
+
+      const hasData = currentForm.inputs.some(
+        (input) =>
+          formData[input.id] && formData[input.id].toString().trim() !== ""
+      );
+
+      if (hasData) {
+        handleAddFormObject(currentForm.id);
+      }
+    }
+  };
+
+  const handleRemoveFromList = (key, itemIndex) => {
     setFormData((prev) => {
-      if (!prev[formId] || !prev[formId].list) {
+      if (!prev[key] || !prev[key].list) {
         return prev;
       }
 
-      const newList = prev[formId].list.filter((_, i) => i !== objectIndex);
+      const newList = prev[key].list.filter((_, i) => i !== itemIndex);
 
-      const newData = {
+      return {
         ...prev,
-        [formId]: {
-          ...prev[formId],
+        [key]: {
+          ...prev[key],
           list: newList,
         },
       };
-
-      return newData;
     });
   };
 
@@ -114,7 +138,7 @@ export const useFormNavigation = (formList) => {
     handleInputChange,
     handleAddToList,
     handleRemoveFromList,
-    handleAddObjectToList,
-    handleDeleteObject,
+    handleAddFormObject,
+    handleKeyDown,
   };
 };

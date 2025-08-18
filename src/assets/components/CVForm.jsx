@@ -15,13 +15,13 @@ const CVForm = () => {
     handleInputChange,
     handleAddToList,
     handleRemoveFromList,
-    handleAddObjectToList,
-    handleDeleteObject,
+    handleAddFormObject,
+    handleKeyDown,
   } = useFormNavigation(formList);
 
   return (
     <aside className="input-form-container" role="form" aria-label="CV Form">
-      <form>
+      <form onKeyDown={handleKeyDown}>
         <div className="input-section">
           <h2 className="form-title">{currentForm.formTitle}</h2>
           <h3 className="form-sub-title">{currentForm.formSubTitle}</h3>
@@ -40,7 +40,7 @@ const CVForm = () => {
                   : []
               }
               onChange={(e) => handleInputChange(input.id, e.target.value)}
-              onAdd={(value) => handleAddToList(input.id, value)}
+              onAdd={(value) => handleAddToList(input.id, value, false)}
               onDelete={(itemIndex) =>
                 handleRemoveFromList(input.id, itemIndex)
               }
@@ -54,7 +54,7 @@ const CVForm = () => {
                 <div key={index} className="saved-object-item">
                   <Button
                     variant="delete"
-                    onClick={() => handleDeleteObject(currentForm.id, index)}
+                    onClick={() => handleRemoveFromList(currentForm.id, index)}
                     ariaLabel={`Delete ${object.localization} - ${object.topic}`}
                     title={`Delete ${object.localization} - ${object.topic}`}
                   >
@@ -79,36 +79,7 @@ const CVForm = () => {
           <>
             <Button
               variant="add"
-              onClick={() => {
-                const ObjectToSave = {};
-
-                currentForm.inputs.forEach((input) => {
-                  const value = formData[input.id];
-                  if (value !== undefined && value !== "") {
-                    ObjectToSave[input.id] = value;
-                  }
-                });
-
-                if (currentForm.id === "education") {
-                  ObjectToSave.localization =
-                    ObjectToSave.universityName || "Unknowed University";
-                  ObjectToSave.topic =
-                    ObjectToSave.studyField || "Unknowed Field of Study";
-                } else if (currentForm.id === "experience") {
-                  ObjectToSave.localization =
-                    ObjectToSave.companyName || "Unknowed Company";
-                  ObjectToSave.topic =
-                    ObjectToSave.jobPosition || "Unknowed Job Position";
-                }
-
-                ObjectToSave.createdAt = new Date().toISOString();
-
-                handleAddObjectToList(currentForm.id, ObjectToSave);
-
-                currentForm.inputs.forEach((input) =>
-                  handleInputChange(input.id, "")
-                );
-              }}
+              onClick={() => handleAddFormObject(currentForm.id)}
               disabled={
                 !currentForm.inputs.some(
                   (input) =>
