@@ -141,6 +141,7 @@ export const formList = [
         required: false,
       },
     ],
+    formSavedObjects: [],
   },
   {
     id: FORM_TYPES.EXPERIENCE,
@@ -173,5 +174,6 @@ export const formList = [
         required: false,
       },
     ],
+    formSavedObjects: [],
   },
 ];

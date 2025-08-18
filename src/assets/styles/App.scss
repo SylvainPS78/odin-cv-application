@@ -180,3 +180,52 @@
     fill: $accent-red;
   }
 }
+
+.saved-form-objects {
+  padding: 0.4rem;
+  border: 2px solid $medium-grey;
+  border-radius: $input-radius;
+  font-size: $font-size-small;
+  font-family: $font-body;
+  margin-bottom: 0.5rem;
+  color: $dark-grey;
+  background-color: $light-grey;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  span {
+    padding: 0.2rem 0.4rem;
+    text-align: center;
+    word-wrap: break-word;
+  }
+}
+
+.saved-object-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  position: relative;
+
+  &:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    transform: translateY(-50%);
+    transform: translateX(10%);
+    width: 80%;
+    height: 2px;
+    background-color: $medium-grey;
+    opacity: 0.5;
+  }
+
+  .delete-button {
+    min-width: 18px;
+  }
+
+  span {
+    font-size: $font-size-extra-small;
+  }
+}

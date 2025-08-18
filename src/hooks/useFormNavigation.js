@@ -55,6 +55,18 @@ export const useFormNavigation = (formList) => {
     }));
   };
 
+  const handleAddObjectToList = (formId, object) => {
+    setFormData((prev) => {
+      const newData = {
+        ...prev,
+        [formId]: {
+          list: [...(prev[formId]?.list || []), object],
+        },
+      };
+      return newData;
+    });
+  };
+
   const handleRemoveFromList = (inputId, itemIndex) => {
     setFormData((prev) => {
       if (!prev[inputId] || !prev[inputId].list) return prev;
@@ -71,6 +83,26 @@ export const useFormNavigation = (formList) => {
     });
   };
 
+  const handleDeleteObject = (formId, objectIndex) => {
+    setFormData((prev) => {
+      if (!prev[formId] || !prev[formId].list) {
+        return prev;
+      }
+
+      const newList = prev[formId].list.filter((_, i) => i !== objectIndex);
+
+      const newData = {
+        ...prev,
+        [formId]: {
+          ...prev[formId],
+          list: newList,
+        },
+      };
+
+      return newData;
+    });
+  };
+
   return {
     index,
     currentForm,
@@ -82,5 +114,7 @@ export const useFormNavigation = (formList) => {
     handleInputChange,
     handleAddToList,
     handleRemoveFromList,
+    handleAddObjectToList,
+    handleDeleteObject,
   };
 };

@@ -15,6 +15,8 @@ const CVForm = () => {
     handleInputChange,
     handleAddToList,
     handleRemoveFromList,
+    handleAddObjectToList,
+    handleDeleteObject,
   } = useFormNavigation(formList);
 
   return (
@@ -45,12 +47,75 @@ const CVForm = () => {
             />
           ))}
         </div>
+        {formData[currentForm.id]?.list && (
+          <div className="saved-form-objects">
+            {[...(formData[currentForm.id]?.list || [])].map(
+              (object, index) => (
+                <div key={index} className="saved-object-item">
+                  <Button
+                    variant="delete"
+                    onClick={() => handleDeleteObject(currentForm.id, index)}
+                    ariaLabel={`Delete ${object.localization} - ${object.topic}`}
+                    title={`Delete ${object.localization} - ${object.topic}`}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="18px"
+                      viewBox="0 -960 960 960"
+                      width="18px"
+                      fill="#ff8787"
+                    >
+                      <path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" />
+                    </svg>
+                  </Button>
+                  <span>{`${object.localization} > ${object.topic}`}</span>
+                </div>
+              )
+            )}
+          </div>
+        )}
+
         {currentForm.addButton && (
           <>
             <Button
               variant="add"
-              //onClick={handleAddClick}
-              //disabled={!value || !value.trim()}
+              onClick={() => {
+                const ObjectToSave = {};
+
+                currentForm.inputs.forEach((input) => {
+                  const value = formData[input.id];
+                  if (value !== undefined && value !== "") {
+                    ObjectToSave[input.id] = value;
+                  }
+                });
+
+                if (currentForm.id === "education") {
+                  ObjectToSave.localization =
+                    ObjectToSave.universityName || "Unknowed University";
+                  ObjectToSave.topic =
+                    ObjectToSave.studyField || "Unknowed Field of Study";
+                } else if (currentForm.id === "experience") {
+                  ObjectToSave.localization =
+                    ObjectToSave.companyName || "Unknowed Company";
+                  ObjectToSave.topic =
+                    ObjectToSave.jobPosition || "Unknowed Job Position";
+                }
+
+                ObjectToSave.createdAt = new Date().toISOString();
+
+                handleAddObjectToList(currentForm.id, ObjectToSave);
+
+                currentForm.inputs.forEach((input) =>
+                  handleInputChange(input.id, "")
+                );
+              }}
+              disabled={
+                !currentForm.inputs.some(
+                  (input) =>
+                    formData[input.id] &&
+                    formData[input.id].toString().trim() !== ""
+                )
+              }
             >
               Add
             </Button>
