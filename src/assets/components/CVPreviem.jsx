@@ -164,6 +164,34 @@ const CVPreview = ({ formData }) => {
             </h2>
             <p className="user-job-title">{formData?.jobTitle || ""}</p>
           </div>
+          {formData?.education?.list && formData.education.list.length > 0 && (
+            <div className="user-education-container">
+              <div className="user-education-title">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="28px"
+                  viewBox="0 -960 960 960"
+                  width="28px"
+                  fill="#000000"
+                  aria-hidden="true"
+                >
+                  <path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z" />
+                </svg>
+                <span>Education</span>
+              </div>
+              {formData.education.list.map((education, index) => (
+                <div key={index} className="user-education-item">
+                  <h4 className="education-institution">
+                    {education.localization}
+                  </h4>
+                  <p className="education-field">{education.topic}</p>
+                  <p className="education-dates">
+                    {education.startDate} - {education.endDate}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </>

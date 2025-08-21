@@ -261,12 +261,14 @@
 .main-preview-container {
   display: flex;
   flex-direction: column;
+  padding-left: $spacing-sm;
 }
 
 .user {
   &-name-and-title {
     background-color: $light-grey;
     margin-top: 2rem;
+    padding-right: $spacing-sm;
   }
 
   &-first-name {
@@ -279,6 +281,15 @@
     font-size: $font-size-small;
     color: $dark-grey;
     text-align: right;
+  }
+}
+
+.user-education {
+  &-title {
+    display: flex;
+    font-size: $font-size-medium;
+    align-items: center;
+    gap: $spacing-xsm;
   }
 }
 
