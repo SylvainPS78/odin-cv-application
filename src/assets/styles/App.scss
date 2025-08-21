@@ -1,4 +1,4 @@
-@import "variables";
+@use "variables" as *;
 
 // ==============================================
 // Layout Principal
@@ -291,6 +291,70 @@
     align-items: center;
     gap: $spacing-xsm;
   }
+
+  &-item {
+    font-size: $font-size-extra-small;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+    margin-bottom: $spacing-sm;
+    padding-left: $spacing-sm;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background-color: $dark-grey;
+      z-index: 1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -1px;
+      top: 4px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $dark-grey;
+      z-index: 2;
+    }
+
+    .education-dates::after {
+      content: "";
+      position: absolute;
+      left: -17px;
+      bottom: 0px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $dark-grey;
+      z-index: 2;
+    }
+  }
+}
+
+.education-institution {
+  font-size: $font-size-small;
+  font-weight: bold;
+  text-align: left;
+}
+
+.education-field {
+  font-size: $font-size-small;
+  text-align: left;
+  font-style: italic;
+}
+
+.education-dates {
+  text-align: left;
+  color: $medium-grey;
+  position: relative;
 }
 
 .aside-preview {

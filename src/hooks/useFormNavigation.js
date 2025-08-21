@@ -78,13 +78,11 @@ export const useFormNavigation = (formList) => {
     });
 
     if (formId === "education") {
-      ObjectToSave.localization =
-        ObjectToSave.universityName || "Unknowed University";
-      ObjectToSave.topic = ObjectToSave.studyField || "Unknowed Field of Study";
+      ObjectToSave.localization = ObjectToSave.universityName || "";
+      ObjectToSave.topic = ObjectToSave.studyField || "";
     } else if (formId === "experience") {
-      ObjectToSave.localization =
-        ObjectToSave.companyName || "Unknowed Company";
-      ObjectToSave.topic = ObjectToSave.jobPosition || "Unknowed Job Position";
+      ObjectToSave.localization = ObjectToSave.companyName || "";
+      ObjectToSave.topic = ObjectToSave.jobPosition || "";
     }
 
     ObjectToSave.createdAt = new Date().toISOString();

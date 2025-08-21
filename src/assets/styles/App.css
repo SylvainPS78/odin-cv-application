@@ -251,6 +251,66 @@
   align-items: center;
   gap: 0.5rem;
 }
+.user-education-item {
+  font-size: clamp(8px, 1vw + 0.25rem, 12.5px);
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  position: relative;
+}
+.user-education-item::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background-color: #242940;
+  z-index: 1;
+}
+.user-education-item::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #242940;
+  z-index: 2;
+}
+.user-education-item .education-dates::after {
+  content: "";
+  position: absolute;
+  left: -17px;
+  bottom: 0px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #242940;
+  z-index: 2;
+}
+
+.education-institution {
+  font-size: clamp(12px, 1.5vw + 0.375rem, 18.75px);
+  font-weight: bold;
+  text-align: left;
+}
+
+.education-field {
+  font-size: clamp(12px, 1.5vw + 0.375rem, 18.75px);
+  text-align: left;
+  font-style: italic;
+}
+
+.education-dates {
+  text-align: left;
+  color: #9194a2;
+  position: relative;
+}
 
 .aside-preview-container {
   position: relative;

@@ -186,7 +186,13 @@ const CVPreview = ({ formData }) => {
                   </h4>
                   <p className="education-field">{education.topic}</p>
                   <p className="education-dates">
-                    {education.startDate} - {education.endDate}
+                    {education.startDate
+                      ? new Date(education.startDate).getFullYear()
+                      : ""}{" "}
+                    -{" "}
+                    {education.endDate
+                      ? new Date(education.endDate).getFullYear()
+                      : ""}
                   </p>
                 </div>
               ))}
