@@ -10,8 +10,8 @@ const CVPreview = ({ formData }) => {
             className="user-picture-preview"
             src={defaultUserPicture}
             alt="User profile picture"
-            width="80px"
-            height="80px"
+            width="100px"
+            height="100px"
           />
           <h4 className="aside-preview-section-title">
             <svg
@@ -32,6 +32,9 @@ const CVPreview = ({ formData }) => {
             </svg>
             <span>About Me</span>
           </h4>
+          <div className="aside-preview-section-about-content">
+            <p className="about-me">{formData?.description || ""}</p>
+          </div>
 
           <h4 className="aside-preview-section-title">
             <svg
@@ -47,6 +50,68 @@ const CVPreview = ({ formData }) => {
             </svg>
             <span>Contact</span>
           </h4>
+          <div className="aside-preview-section-contact-content">
+            <div className="preview-email">
+              {formData.email && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16px"
+                  height="16px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#242940"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="contact-icon"
+                  aria-hidden="true"
+                >
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              )}
+              <span className="user-contact">{formData?.email || ""}</span>
+            </div>
+            <div className="preview-phone">
+              {formData.phoneNumber && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="16px"
+                  viewBox="0 -960 960 960"
+                  width="16px"
+                  fill="#242940"
+                  className="contact-icon"
+                  aria-hidden="true"
+                >
+                  <path d="M798-120q-125 0-247-54.5T329-329Q229-429 174.5-551T120-798q0-18 12-30t30-12h162q14 0 25 9.5t13 22.5l26 140q2 16-1 27t-11 19l-97 98q20 37 47.5 71.5T387-386q31 31 65 57.5t72 48.5l94-94q9-9 23.5-13.5T670-390l138 28q14 4 23 14.5t9 23.5v162q0 18-12 30t-30 12ZM241-600l66-66-17-94h-89q5 41 14 81t26 79Zm358 358q39 17 79.5 27t81.5 13v-88l-94-19-67 67ZM241-600Zm358 358Z" />
+                </svg>
+              )}
+              <span className="user-contact">
+                {formData?.phoneNumber || ""}
+              </span>
+            </div>
+            <div className="preview-address">
+              {formData.address && (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16px"
+                  height="16px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#242940"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="adcontact-icon"
+                  aria-hidden="true"
+                >
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+              )}
+              <span className="user-contact">{formData?.address || ""}</span>
+            </div>
+          </div>
 
           <h4 className="aside-preview-section-title">
             <svg
@@ -62,8 +127,7 @@ const CVPreview = ({ formData }) => {
             </svg>
             <span>Skills</span>
           </h4>
-          <div className="aside-preview-section-content">
-            {" "}
+          <div className="aside-preview-section-skill-content">
             {formData?.skillDescription?.list?.map((skill, index) => (
               <p key={index} className="user-skill">
                 {skill}
@@ -83,12 +147,23 @@ const CVPreview = ({ formData }) => {
             >
               <path d="M620-40q-104 0-183.5-62T331-260q45 2 89-9t84-31h164q1-11 1.5-21.5t.5-21.5q0-9-.5-18.5T668-380h-59q16-18 29.5-38t24.5-42h141q-20-30-48-52.5T693-547q5-20 6.5-41t.5-41q96 26 158 105.5T920-340q0 125-87.5 212.5T620-40Zm-95-102q-7-20-12.5-39t-9.5-39h-67q17 25 39.5 45t49.5 33Zm95 14q12-22 20.5-45t14.5-47h-70q6 24 15 47t20 45Zm95-14q27-13 49.5-33t39.5-45h-67q-5 20-10 39t-12 39Zm33-158h88q2-10 3-19.5t1-20.5q0-11-1-20.5t-3-19.5h-88q1 9 1.5 18.5t.5 18.5q0 11-.5 21.5T748-300Zm-408-20q-125 0-212.5-87.5T40-620q0-125 87.5-212.5T340-920q125 0 212.5 87.5T640-620q0 125-87.5 212.5T340-320Zm0-80q91 0 155.5-64.5T560-620q0-91-64.5-155.5T340-840q-91 0-155.5 64.5T120-620q0 91 64.5 155.5T340-400ZM240-640q17 0 28.5-11.5T280-680q0-17-11.5-28.5T240-720q-17 0-28.5 11.5T200-680q0 17 11.5 28.5T240-640Zm100 176q48 0 85.5-27t54.5-69H200q17 42 54.5 69t85.5 27Zm100-176q17 0 28.5-11.5T480-680q0-17-11.5-28.5T440-720q-17 0-28.5 11.5T400-680q0 17 11.5 28.5T440-640Zm-100 20Z" />
             </svg>
-            <span>language</span>
+            <span>languages</span>
           </h4>
+          <div className="aside-preview-section-language-content">
+            {formData?.language?.list?.map((language, index) => (
+              <p key={index} className="user-languages">
+                {language}
+              </p>
+            ))}
+          </div>
         </div>
         <div className="main-preview-container">
-          <h2 className="user-first-name">{formData?.firstName || ""}</h2>
-          <h2 className="user-last-name">{formData?.lastName || ""}</h2>
+          <div className="user-name-and-title">
+            <h2 className="user-first-name">
+              {formData?.firstName || ""} {formData?.lastName || ""}
+            </h2>
+            <p className="user-job-title">{formData?.jobTitle || ""}</p>
+          </div>
         </div>
       </div>
     </>
