@@ -1,12 +1,17 @@
-function Footer() {
+import React from "react";
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer>
+    <footer role="contentinfo" aria-label="Site footer">
       <p>
-        &copy; <time dateTime="2025">2025</time> Created by{" "}
+        &copy; <time dateTime={currentYear.toString()}>{currentYear}</time> Created by{" "}
         <a
           href="https://github.com/SylvainPS78"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Visit Sylvain Web's GitHub profile"
         >
           Sylvain Web
         </a>
@@ -17,6 +22,7 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           href="https://unsplash.com/@miikola"
+          aria-label="Visit Nicolas I.'s Unsplash profile"
         >
           Nicolas I.
         </a>{" "}
@@ -25,12 +31,13 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           href="https://unsplash.com/photos/person-holding-dslr-camera-azPNN8Rcr48"
+          aria-label="View original photo on Unsplash"
         >
           Unsplash
         </a>
       </p>
     </footer>
   );
-}
+};
 
 export default Footer;

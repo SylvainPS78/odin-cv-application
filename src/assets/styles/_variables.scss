@@ -1,12 +1,14 @@
 // ==============================================
 // Design System Variables
 // ==============================================
+// IMPORTANT: Colors synchronized with src/constants/colors.js
+// Report modifications in colors.js
 
 // Colors - Primary Palette
 $primary-blue: #5367ff;
 $light-primary-blue: #7f8dfc;
 
-// Colors - Accent Palette  
+// Colors - Accent Palette
 $accent-red: #fa5757;
 $light-accent-red: #ff8787;
 
@@ -18,10 +20,10 @@ $medium-grey: #9194a2;
 $dark-grey: #242940;
 
 // Spacing Scale
-$spacing-xsm: 0.5rem;   // 8px
-$spacing-sm: 1rem;      // 16px
-$spacing-md: 2rem;      // 32px
-$spacing-lg: 4rem;      // 64px
+$spacing-xsm: 0.5rem; // 8px
+$spacing-sm: 1rem; // 16px
+$spacing-md: 2rem; // 32px
+$spacing-lg: 4rem; // 64px
 
 // Typography System
 $font-body: "Montserrat", Arial, sans-serif;
