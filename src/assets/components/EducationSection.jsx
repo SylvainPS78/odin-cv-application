@@ -6,11 +6,11 @@ const EducationSection = ({ education }) => {
   if (!education?.list?.length) return null;
 
   return (
-    <div className="user-education-container">
-      <div className="user-education-title">
-        <Icon name="education" size={28} color={COLORS.BLACK} />
+    <section className="user-education-container" aria-labelledby="education-heading">
+      <h3 id="education-heading" className="user-education-title">
+        <Icon name="education" size={28} color={COLORS.BLACK} aria-label="Educational background" />
         <span>Education</span>
-      </div>
+      </h3>
       {education.list.map((educationItem, index) => (
         <div key={index} className="user-education-item">
           <h4 className="education-institution">
@@ -28,7 +28,7 @@ const EducationSection = ({ education }) => {
           </p>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 

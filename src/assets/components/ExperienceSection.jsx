@@ -7,11 +7,19 @@ const ExperienceSection = ({ experience }) => {
   if (!experience?.list?.length) return null;
 
   return (
-    <div className="user-experience-container">
-      <div className="user-experience-title">
-        <Icon name="experience" size={28} color={COLORS.BLACK} />
+    <section
+      className="user-experience-container"
+      aria-labelledby="experience-heading"
+    >
+      <h3 id="experience-heading" className="user-experience-title">
+        <Icon
+          name="experience"
+          size={28}
+          color={COLORS.BLACK}
+          aria-label="Professional experience"
+        />
         <span>Experience</span>
-      </div>
+      </h3>
       {experience.list.map((experienceItem, index) => (
         <div key={index} className="user-experience-item">
           <h4 className="experience-institution">
@@ -39,7 +47,7 @@ const ExperienceSection = ({ experience }) => {
           </p>
         </div>
       ))}
-    </div>
+    </section>
   );
 };
 
