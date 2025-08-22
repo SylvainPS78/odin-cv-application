@@ -157,9 +157,6 @@
   align-items: center;
   outline: none;
 }
-.delete-button:focus {
-  outline: none;
-}
 .delete-button svg {
   transition: fill 0.2s ease;
 }

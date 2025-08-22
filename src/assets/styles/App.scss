@@ -181,10 +181,6 @@
   align-items: center;
   outline: none;
 
-  &:focus {
-    outline: none;
-  }
-
   svg {
     transition: fill $transition-fast;
   }
