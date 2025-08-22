@@ -7,6 +7,14 @@
   max-width: 1280px;
   text-align: center;
   background-color: $primary-blue;
+  display: flex;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    gap: $spacing-sm;
+    padding: $spacing-sm;
+    max-width: 100%;
+  }
 }
 
 // ====================
@@ -23,11 +31,21 @@
 .input-form-container {
   background-color: $white;
   width: 20vw;
+  min-width: 250px;
   padding: $spacing-sm;
   border-radius: $container-radius;
   position: relative;
   top: $spacing-sm;
   left: $spacing-sm;
+
+  @media (max-width: 1000px) {
+    position: static;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+  }
 }
 
 .form-navigation {
@@ -224,6 +242,7 @@
 .cv-preview-container {
   background-color: $white;
   width: 40vw;
+  min-width: 600px;
   padding: $spacing-sm;
   border-radius: $container-radius;
   position: absolute;
@@ -232,6 +251,16 @@
   height: calc(94vh - 2 * $spacing-sm);
   display: grid;
   grid-template-columns: 30% 70%;
+
+  @media (max-width: 1000px) {
+    position: static;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    height: auto;
+    left: 0;
+    top: 0;
+  }
 }
 .main-preview-container {
   display: flex;
@@ -373,6 +402,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: $spacing-sm;
+      padding-left: $spacing-xsm;
 
       &::after {
         content: "";
