@@ -1,6 +1,6 @@
 import React from "react";
 import InputField from "./InputField";
-import CVPreview from "./CVPreviem.jsx";
+import CVPreview from "./CVPreview.jsx";
 import Button from "./Button";
 import Icon from "./Icon";
 import { formList } from "../../constants/formConfig.js";
