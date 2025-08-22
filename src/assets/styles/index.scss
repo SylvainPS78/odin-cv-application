@@ -102,7 +102,7 @@ a {
   }
 }
 
-//button elements
+//button elements - Base styles
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -110,12 +110,7 @@ button {
   font-size: $font-size-small;
   font-family: $font-body;
   cursor: pointer;
-  transition: all 0.3s ease;
-  min-width: 40%;
-
-  &:hover {
-    border-color: $primary-blue;
-  }
+  transition: $transition-normal;
 
   &:focus,
   &:focus-visible {
@@ -123,7 +118,7 @@ button {
   }
 }
 
-// Input
+// Input - Base styles
 .input-field {
   width: 100%;
   padding: 0.4rem;
@@ -132,7 +127,7 @@ button {
   font-size: $font-size-small;
   font-family: $font-body;
   margin-bottom: 0.5rem;
-  transition: border-color 0.2s ease;
+  transition: border-color $transition-fast;
 
   &:focus {
     outline: none;
@@ -159,4 +154,5 @@ footer {
   font-family: $font-body;
   font-size: $font-size-small;
   max-height: 6vh;
+  z-index: $z-index-footer;
 }

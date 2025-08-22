@@ -48,11 +48,14 @@
   background: linear-gradient(135deg, #5367ff, #7f8dfc);
   color: #ffffff;
   border: none;
+  min-width: 40%;
+  transition: all 0.3s ease;
 }
 .next-button:hover,
 .previous-button:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 15px rgba(83, 103, 255, 0.3);
+  border-color: #5367ff;
 }
 .next-button:active,
 .previous-button:active {
@@ -82,10 +85,13 @@
   color: #ffffff;
   border: none;
   margin-bottom: 0.5rem;
+  min-width: 40%;
+  transition: all 0.3s ease;
 }
 .add-button:hover {
   box-shadow: 0 4px 15px rgba(83, 103, 255, 0.3);
   transform: translateY(-1px);
+  border-color: #5367ff;
 }
 .add-button:active {
   transform: translateY(0);
