@@ -242,7 +242,7 @@
 .cv-preview-container {
   background-color: $white;
   width: 40vw;
-  min-width: 600px;
+  min-width: 700px;
   padding: $spacing-sm;
   border-radius: $container-radius;
   position: absolute;
@@ -250,12 +250,13 @@
   left: 30vw;
   height: calc(94vh - 2 * $spacing-sm);
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 35% 65%;
 
   @media (max-width: 1000px) {
     position: static;
     width: 100%;
     max-width: 800px;
+    min-width: 250px;
     margin: 0 auto;
     height: auto;
     left: 0;
@@ -438,6 +439,13 @@
   gap: 0.5rem;
   font-size: $font-size-extra-small;
   text-align: left;
+
+  .user-contact {
+    word-wrap: break-word;
+    word-break: break-all;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
 }
 
 .contact-icon {

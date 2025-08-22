@@ -212,7 +212,7 @@
 .cv-preview-container {
   background-color: #ffffff;
   width: 40vw;
-  min-width: 600px;
+  min-width: 700px;
   padding: 1rem;
   border-radius: 20px;
   position: absolute;
@@ -220,13 +220,14 @@
   left: 30vw;
   height: calc(94vh - 2rem);
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 35% 65%;
 }
 @media (max-width: 1000px) {
   .cv-preview-container {
     position: static;
     width: 100%;
     max-width: 800px;
+    min-width: 250px;
     margin: 0 auto;
     height: auto;
     left: 0;
@@ -398,6 +399,15 @@
   gap: 0.5rem;
   font-size: clamp(8px, 1vw + 0.25rem, 12.5px);
   text-align: left;
+}
+.preview-email .user-contact,
+.preview-phone .user-contact,
+.preview-address .user-contact {
+  word-wrap: break-word;
+  word-break: break-all;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  overflow-wrap: break-word;
 }
 
 .contact-icon {
