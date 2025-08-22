@@ -357,16 +357,17 @@
   gap: 0.5rem;
 }
 .aside-preview-section-skill-content, .aside-preview-section-language-content {
-  font-size: clamp(12px, 1.5vw + 0.375rem, 18.75px);
+  font-size: clamp(8px, 1vw + 0.25rem, 12.5px);
   font-family: "Montserrat", Arial, sans-serif;
   color: #242940;
   position: relative;
-  align-self: center;
   display: grid;
   grid-template-columns: 1fr 1fr;
   -moz-column-gap: 1rem;
        column-gap: 1rem;
-  padding-left: 0.5rem;
+  width: 100%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
 }
 .aside-preview-section-skill-content::after, .aside-preview-section-language-content::after {
   content: "";
@@ -374,7 +375,7 @@
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 2px;
+  width: 1px;
   height: 80%;
   background-color: #242940;
 }
@@ -409,4 +410,9 @@
   padding-left: 1rem;
   text-align: left;
   white-space: pre-wrap;
+}
+
+.skill-section,
+.language-section {
+  width: 100%;
 }/*# sourceMappingURL=App.css.map */

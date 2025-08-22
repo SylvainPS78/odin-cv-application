@@ -394,15 +394,16 @@
     }
     &-skill-content,
     &-language-content {
-      font-size: $font-size-small;
+      font-size: $font-size-extra-small;
       font-family: $font-body;
       color: $dark-grey;
       position: relative;
-      align-self: center;
       display: grid;
       grid-template-columns: 1fr 1fr;
       column-gap: $spacing-sm;
-      padding-left: $spacing-xsm;
+      width: 100%;
+      padding: 0 $spacing-xsm;
+      box-sizing: border-box;
 
       &::after {
         content: "";
@@ -410,7 +411,7 @@
         top: 10%;
         left: 50%;
         transform: translateX(-50%);
-        width: 2px;
+        width: 1px;
         height: 80%;
         background-color: $dark-grey;
       }
@@ -449,4 +450,9 @@
   padding-left: $spacing-sm;
   text-align: left;
   white-space: pre-wrap;
+}
+
+.skill-section,
+.language-section {
+  width: 100%;
 }
