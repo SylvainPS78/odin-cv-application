@@ -1,5 +1,6 @@
 import React from "react";
 import defaultUserPicture from "../../assets/img/default_user_picture.jpg";
+import { calculateDuration } from "../../utils/dateUtils";
 
 const CVPreview = ({ formData }) => {
   return (
@@ -198,6 +199,63 @@ const CVPreview = ({ formData }) => {
               ))}
             </div>
           )}
+          {formData?.experience?.list &&
+            formData.experience.list.length > 0 && (
+              <div className="user-experience-container">
+                <div className="user-experience-title">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="28px"
+                    height="28px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#000000"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect
+                      x="2"
+                      y="7"
+                      width="20"
+                      height="14"
+                      rx="2"
+                      ry="2"
+                    ></rect>
+                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                  </svg>
+                  <span>Experiences</span>
+                </div>
+                {formData.experience.list.map((experience, index) => (
+                  <div key={index} className="user-experience-item">
+                    <h4 className="experience-institution">
+                      {experience.localization}
+                    </h4>
+                    <p className="experience-field">{experience.topic}</p>
+                    <p className="experience-dates">
+                      {experience.startDate
+                        ? new Date(experience.startDate).getFullYear()
+                        : ""}{" "}
+                      -{" "}
+                      {experience.endDate
+                        ? new Date(experience.endDate).getFullYear()
+                        : ""}{" "}
+                      {experience.startDate && experience.endDate && (
+                        <span className="experience-duration">
+                          (
+                          {calculateDuration(
+                            experience.startDate,
+                            experience.endDate
+                          )}
+                          )
+                        </span>
+                      )}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            )}
         </div>
       </div>
     </>

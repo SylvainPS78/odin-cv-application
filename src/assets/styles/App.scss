@@ -210,33 +210,6 @@
   }
 }
 
-.saved-object-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-
-  &:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    transform: translateY(-50%);
-    transform: translateX(10%);
-    width: 80%;
-    height: 2px;
-    background-color: $medium-grey;
-    opacity: 0.5;
-  }
-
-  .delete-button {
-    min-width: 18px;
-  }
-
-  span {
-    font-size: $font-size-extra-small;
-  }
-}
-
 .user-picture {
   margin: 0.5rem auto;
   border-radius: 50%;
@@ -284,7 +257,8 @@
   }
 }
 
-.user-education {
+.user-education,
+.user-experience {
   &-title {
     display: flex;
     font-size: $font-size-medium;
@@ -325,7 +299,8 @@
       z-index: 2;
     }
 
-    .education-dates::after {
+    .education-dates::after,
+    .experience-dates::after {
       content: "";
       position: absolute;
       left: -17px;
@@ -339,22 +314,32 @@
   }
 }
 
-.education-institution {
+.education-institution,
+.experience-institution {
   font-size: $font-size-small;
   font-weight: bold;
   text-align: left;
 }
 
-.education-field {
+.education-field,
+.experience-field {
   font-size: $font-size-small;
   text-align: left;
   font-style: italic;
 }
 
-.education-dates {
+.education-dates,
+.experience-dates {
   text-align: left;
   color: $medium-grey;
   position: relative;
+
+  .experience-duration {
+    font-style: italic;
+    color: $medium-grey;
+    font-weight: 500;
+    margin-left: 0.5rem;
+  }
 }
 
 .aside-preview {

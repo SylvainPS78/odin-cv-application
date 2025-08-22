@@ -181,30 +181,6 @@
   word-wrap: break-word;
 }
 
-.saved-object-item {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  position: relative;
-}
-.saved-object-item:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  transform: translateY(-50%);
-  transform: translateX(10%);
-  width: 80%;
-  height: 2px;
-  background-color: #9194a2;
-  opacity: 0.5;
-}
-.saved-object-item .delete-button {
-  min-width: 18px;
-}
-.saved-object-item span {
-  font-size: clamp(8px, 1vw + 0.25rem, 12.5px);
-}
-
 .user-picture {
   margin: 0.5rem auto;
   border-radius: 50%;
@@ -245,13 +221,15 @@
   text-align: right;
 }
 
-.user-education-title {
+.user-education-title,
+.user-experience-title {
   display: flex;
   font-size: clamp(16px, 2vw + 0.5rem, 25px);
   align-items: center;
   gap: 0.5rem;
 }
-.user-education-item {
+.user-education-item,
+.user-experience-item {
   font-size: clamp(8px, 1vw + 0.25rem, 12.5px);
   display: flex;
   flex-direction: column;
@@ -261,7 +239,8 @@
   padding-left: 1rem;
   position: relative;
 }
-.user-education-item::before {
+.user-education-item::before,
+.user-experience-item::before {
   content: "";
   position: absolute;
   left: 3px;
@@ -271,7 +250,8 @@
   background-color: #242940;
   z-index: 1;
 }
-.user-education-item::after {
+.user-education-item::after,
+.user-experience-item::after {
   content: "";
   position: absolute;
   left: -1px;
@@ -282,7 +262,10 @@
   background-color: #242940;
   z-index: 2;
 }
-.user-education-item .education-dates::after {
+.user-education-item .education-dates::after,
+.user-education-item .experience-dates::after,
+.user-experience-item .education-dates::after,
+.user-experience-item .experience-dates::after {
   content: "";
   position: absolute;
   left: -17px;
@@ -294,22 +277,32 @@
   z-index: 2;
 }
 
-.education-institution {
+.education-institution,
+.experience-institution {
   font-size: clamp(12px, 1.5vw + 0.375rem, 18.75px);
   font-weight: bold;
   text-align: left;
 }
 
-.education-field {
+.education-field,
+.experience-field {
   font-size: clamp(12px, 1.5vw + 0.375rem, 18.75px);
   text-align: left;
   font-style: italic;
 }
 
-.education-dates {
+.education-dates,
+.experience-dates {
   text-align: left;
   color: #9194a2;
   position: relative;
+}
+.education-dates .experience-duration,
+.experience-dates .experience-duration {
+  font-style: italic;
+  color: #9194a2;
+  font-weight: 500;
+  margin-left: 0.5rem;
 }
 
 .aside-preview-container {
